@@ -1,0 +1,11 @@
+/storage/archive
+/storage/csv
+/storage/blackhole
+/storage/example
+/storage/heap
+/storage/myisam
+/storage/ndb
+/storage/federated
+/storage/myisammrg
+/storage/partition
+/storage/perfschema
