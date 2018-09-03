@@ -53,6 +53,7 @@ lock_get_size(void);
 /*===============*/
 /*********************************************************************//**
 Creates the lock system at database start. */
+//创建锁
 void
 lock_sys_create(
 /*============*/
@@ -998,6 +999,8 @@ struct lock_op_t{
 typedef ib_mutex_t LockMutex;
 
 /** The lock system struct */
+
+//锁的数据结构
 struct lock_sys_t{
 	char		pad1[CACHE_LINE_SIZE];	/*!< padding to prevent other
 						memory update hotspots from
@@ -1015,6 +1018,8 @@ struct lock_sys_t{
 	char		pad2[CACHE_LINE_SIZE];	/*!< Padding */
 	LockMutex	wait_mutex;		/*!< Mutex protecting the
 						next two fields */
+
+	//用户线程数组 --> 当等待InnoDB 锁住时暂停. 通过  lock_sys->wait_mutex 互斥 来解决
 	srv_slot_t*	waiting_threads;	/*!< Array  of user threads
 						suspended while waiting for
 						locks within InnoDB, protected

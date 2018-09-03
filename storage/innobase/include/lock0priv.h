@@ -74,10 +74,11 @@ operator<<(std::ostream& out, const lock_table_t& lock)
 }
 
 /** Record lock for a page */
+//页级锁
 struct lock_rec_t {
-	ib_uint32_t	space;		/*!< space id */
-	ib_uint32_t	page_no;	/*!< page number */
-	ib_uint32_t	n_bits;		/*!< number of bits in the lock
+	ib_uint32_t	space;//表空间编号id		/*!< space id */
+	ib_uint32_t	page_no; //数据页编码	     /*!< page number */
+	ib_uint32_t	n_bits;	//数据页包含的记录 	/*!< number of bits in the lock
 					bitmap; NOTE: the lock bitmap is
 					placed immediately after the
 					lock struct */
